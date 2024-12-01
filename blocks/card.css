@@ -1,5 +1,7 @@
 .card {
   width: 413px;
+  font-family: Poppins, Arial, Helvetica, sans-serif;
+  font-size: 20px;
 }
 
 .card__image {
@@ -8,6 +10,14 @@
   border-radius: 8px;
   object-fit: cover;
   display: block;
+}
+
+.card__title {
+  font-size: 20px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 413px;
 }
 
 .card__content {
@@ -20,9 +30,14 @@
   background-image: url(../images/heart.svg);
   width: 23px;
   height: 20px;
-  border: none;
+  border: 2px;
   background-color: transparent;
   opacity: 40%;
+}
+
+.card__like-btn:hover {
+  opacity: 100%;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 627px) {
