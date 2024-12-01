@@ -12,6 +12,7 @@
   width: 190px;
   height: 190px;
   border-radius: 8px;
+  object-fit: cover;
 }
 
 .profile__column {
@@ -34,6 +35,9 @@
 
 .profile__description {
   margin: 0;
+  font-size: 16px;
+  line-height: 1;
+  font-weight: 500;
   color: rgba(33, 33, 33, 0.7);
   text-overflow: ellipsis;
   overflow: hidden;
@@ -60,23 +64,19 @@
   color: rgb(33, 33, 33, 1);
 }
 
-.pencil {
+.profile__pencil-icon {
   margin-right: 8px;
   opacity: 70%;
 }
 
-.pencil:hover {
-  opacity: 100%;
-}
-
-.plus {
+.profile__plus-icon {
   padding-right: 8px;
   height: 12px;
   width: 12px;
 }
 
 .profile__add-btn {
-  margin: 138px 0 20px;
+  align-self: end;
   margin-left: auto;
   background-color: #212121;
   color: #fcf5e5;
@@ -92,7 +92,7 @@
 }
 
 .profile__add-btn:hover {
-  color: darkseagreen;
+  opacity: 80%;
 }
 
 @media screen and (max-width: 627px) {
