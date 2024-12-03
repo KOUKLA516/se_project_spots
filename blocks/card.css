@@ -16,6 +16,7 @@
 
 .card__title {
   font-size: 20px;
+  font-weight: 500;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
@@ -36,6 +37,7 @@
   border: 2px;
   background-color: transparent;
   opacity: 40%;
+  background-size: cover;
 }
 
 .card__like-btn:hover {
@@ -44,15 +46,10 @@
 }
 
 @media screen and (max-width: 627px) {
-  .card {
-    column-gap: 12px;
-  }
-
   .card__title {
     max-width: 250px;
     font-size: 16px;
     line-height: 1;
-    font-weight: 500;
   }
 
   .card__image {
@@ -63,6 +60,5 @@
   .card__like-btn {
     width: 20px;
     height: 18px;
-    opacity: 40%;
   }
 }

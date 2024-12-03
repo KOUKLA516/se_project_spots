@@ -15,6 +15,10 @@ TODO - Describe the project and its functionality
 This webpage is deployed to GitHub pages
 - [Deployment Link] (https://koukla516.github.io/se_project_spots/index.html)
 
+## Project Video
+This is the link to required video about this project
+[Deployment Link](https://drive.google.com/file/d/1UE5Cd8QiQi81rz6rBy5xHmqct1lpAZCO/view?usp=sharing)
+
 ### Overview  
 
 * Intro  
