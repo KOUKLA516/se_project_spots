@@ -10,12 +10,12 @@
   align-items: center;
   justify-content: center;
   padding: 0 16px;
-  /* visibility: hidden; */
+  visibility: hidden;
 }
 
-/* .modal_opened {
+.modal_opened {
   visibility: visible;
-} */
+}
 
 .modal__container {
   background: #fff;
