@@ -7,6 +7,35 @@ const initialCards = [
   { name: "Mountain house", link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/6-photo-by-moritz-feldmann-from-pexels.jpg" },
 ];
 
+// Card Template
+const cardTemplate = document.querySelector("#card-template");
+const cardsList = document.querySelector(".cards__list");
+
+function getCardElement(data) {
+  const cardElement = cardTemplate.content.querySelector(".card").cloneNode(true);
+
+  const cardNameEl = cardElement.querySelector(".card__title");
+
+  cardNameEl.textContent = data.name;
+
+  return cardElement;
+}
+
+function getCardElement(data) {
+  const cardElement = cardTemplate.content.querySelector(".card").cloneNode(true);
+
+  const cardNameEl = cardElement.querySelector(".card__title");
+  const cardImageEl = cardElement.querySelector(".card__image");
+
+  // Set the card title and image dynamically
+  cardNameEl.textContent = data.name;
+  cardImageEl.src = data.link;
+  cardImageEl.alt = data.name;
+
+  return cardElement;
+}
+
+
 // Profile Elements
 const profileEditButton = document.querySelector(".profile__edit-btn");
 const profileName = document.querySelector(".profile__name");
@@ -43,3 +72,8 @@ function handelEditFormSubmit(evt) {
 profileEditButton.addEventListener("click", openModal);
 editModalCloseBtn.addEventListener("click", closeModal);
 editFormElement.addEventListener("submit", handelEditFormSubmit);
+
+for (let i = 0; i < initialCards.length; i++) {
+  const cardElement = getCardElement(initialCards[i]);
+  cardsList.prepend(cardElement);
+}
