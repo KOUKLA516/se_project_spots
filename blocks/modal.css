@@ -36,6 +36,7 @@
   background-image: url(../images/close-btn.svg);
   border: none;
   opacity: 40%;
+  background-color: transparent;
 }
 
 .modal__close-btn:hover {
@@ -90,6 +91,7 @@
   font-size: 16px;
   font-weight: 500;
   line-height: 1;
+  border-radius: 8px;
 }
 
 .modal__submit-btn:hover {

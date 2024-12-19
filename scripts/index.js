@@ -15,16 +15,6 @@ function getCardElement(data) {
   const cardElement = cardTemplate.content.querySelector(".card").cloneNode(true);
 
   const cardNameEl = cardElement.querySelector(".card__title");
-
-  cardNameEl.textContent = data.name;
-
-  return cardElement;
-}
-
-function getCardElement(data) {
-  const cardElement = cardTemplate.content.querySelector(".card").cloneNode(true);
-
-  const cardNameEl = cardElement.querySelector(".card__title");
   const cardImageEl = cardElement.querySelector(".card__image");
 
   // Set the card title and image dynamically
@@ -34,7 +24,6 @@ function getCardElement(data) {
 
   return cardElement;
 }
-
 
 // Profile Elements
 const profileEditButton = document.querySelector(".profile__edit-btn");
