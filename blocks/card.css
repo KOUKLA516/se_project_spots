@@ -45,6 +45,27 @@
   cursor: pointer;
 }
 
+.card__like-btn_liked {
+  background-image: url(../images/liked.svg);
+  opacity: 100%;
+}
+
+.card__like-btn_liked:hover {
+  background-image: url(../images/like-hvr.svg);
+  opacity: 100%;
+}
+
+.delete-btn {
+  background-image: url(../images/delete-btn.svg);
+  width: 32px;
+  height: 32px;
+}
+
+.delete-btn:hover {
+  background-image: url(../images/delete-btn-hvr.svg);
+  cursor: pointer;
+}
+
 @media screen and (max-width: 627px) {
   .card__title {
     max-width: 250px;
