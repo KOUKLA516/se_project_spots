@@ -38,8 +38,8 @@ function getCardElement(data) {
 
   // Delete btn
   const cardDeleteBtn = cardElement.querySelector(".card__delete-btn");
-  cardDeleteBtn.addEventListener("click", () => {
-  cardElement.remove();
+    cardDeleteBtn.addEventListener("click", () => {
+    cardElement.remove();
   });
 
   return cardElement;
@@ -69,7 +69,7 @@ const cardLinkInput = cardModal.querySelector("#add-card-link-input");
 const previewModal = document.querySelector("#preview-modal");
 const previewModalImageEl = previewModal.querySelector(".modal__image");
 const previewModalCaptionEl = previewModal.querySelector(".modal__caption");
-const previewModalCloseBtn = previewModal.querySelector(".modal__close-btn");
+const previewModalCloseBtn = previewModal.querySelector(".modal__close-button");
 
 // Open Modal Function
 function openModal(modal) {
@@ -96,6 +96,8 @@ function handleAddCardSubmit(evt) {
   initialCards.unshift(inputValues);
   const cardEl = getCardElement(inputValues);
   cardsList.prepend(cardEl);
+  cardNameInput.value = '';
+  cardLinkInput.value = '';
   closeModal(cardModal);
 }
 

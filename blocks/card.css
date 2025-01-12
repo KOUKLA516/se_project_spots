@@ -3,6 +3,7 @@
   max-width: 100%;
   font-family: Poppins, Arial, Helvetica, sans-serif;
   font-size: 20px;
+  position: relative;
 }
 
 .card__image {
@@ -55,13 +56,18 @@
   opacity: 100%;
 }
 
-.delete-btn {
+.card__delete-btn {
+  position: absolute;
+  border: none;
+  top: 10px;
+  right: 10px;
   background-image: url(../images/delete-btn.svg);
+  background-color: transparent;
   width: 32px;
   height: 32px;
 }
 
-.delete-btn:hover {
+.card__delete-btn:hover {
   background-image: url(../images/delete-btn-hvr.svg);
   cursor: pointer;
 }
