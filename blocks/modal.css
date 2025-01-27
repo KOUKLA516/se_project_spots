@@ -144,22 +144,23 @@
 }
 
 .modal__input_type_error {
-  border: 1px solid #ff0000;
+  border: 1px solid rgba(255, 0, 0, 0.6);
 }
 
 .modal__error {
-  display: none;
+  display: block;
   margin-top: 8px;
-  color: #ff0000;
+  color: rgba(255, 0, 0, 0.7);
   opacity: 70%;
   font-family: Poppins, Arial, Helvetica, sans-serif;
   font-size: 16px;
   font-weight: 500;
   line-height: 17.6px;
+  visibility: hidden;
 }
 
 .modal__error_visible {
-  display: block;
+  visibility: visible;
 }
 
 .modal__submit-btn {
@@ -179,7 +180,7 @@
   background-color: rgba(33, 33, 33, 0.8);
 }
 
-.modal__submit-btn:disabled {
+.modal__submit-btn-disabled {
   color: rgba(33, 33, 33, 0.5);
 }
 

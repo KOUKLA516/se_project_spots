@@ -54,13 +54,15 @@ const profileDescription = document.querySelector(".profile__description");
 // Modal Elements
 const editModal = document.querySelector("#edit-modal");
 const editFormElement = editModal.querySelector(".modal__form");
-const editModalCloseBtn = editModal.querySelector(".modal__close-btn");
 const editModalNameInput = editModal.querySelector("#profile-name-input");
 const editModalDescriptionInput = editModal.querySelector("#profile-description-input");
+const editSubmitBtn = editModal.querySelector(".modal__submit-btn");
+const editModalCloseBtn = editModal.querySelector(".modal__close-btn");
 
 // Card Modal Elements
 const cardModal = document.querySelector("#add-card-modal");
 const cardForm = cardModal.querySelector(".add-card-form");
+const cardSubmitBtn = cardModal.querySelector(".modal__submit-btn");
 const cardModalCloseBtn = cardModal.querySelector(".modal__close-btn");
 const cardNameInput = cardModal.querySelector("#add-card-name-input");
 const cardLinkInput = cardModal.querySelector("#add-card-link-input");
@@ -86,7 +88,8 @@ function handleEditFormSubmit(evt) {
   evt.preventDefault();
   profileName.textContent = editModalNameInput.value;
   profileDescription.textContent = editModalDescriptionInput.value;
-  closeModal(editModal);
+  disableButton(editSubmitBtn, settings);
+  closeModal(editModal); // Close the modal after submission
 }
 
 //Form Submit Function - New Post
@@ -98,27 +101,37 @@ function handleAddCardSubmit(evt) {
   cardsList.prepend(cardEl);
   cardNameInput.value = '';
   cardLinkInput.value = '';
-  closeModal(cardModal);
+  resetValidation(cardForm, [cardNameInput, cardLinkInput], settings);
+  closeModal(cardModal); // Close the modal after submission
 }
 
 
 // Event Listeners - Profile
 profileEditButton.addEventListener("click", () => {
-  editModalNameInput.value = profileName.textContent;
-  editModalDescriptionInput.value = profileDescription.textContent;
+
+// Set default valid values if needed
+editModalNameInput.value = profileName.textContent || "Name"; // Default value
+editModalDescriptionInput.value = profileDescription.textContent || "Description"; // Default value
+
+  resetValidation(editFormElement, [editModalNameInput, editModalDescriptionInput], settings);
+  toggleButtonState([editModalNameInput, editModalDescriptionInput], editSubmitBtn, settings);
   openModal(editModal);
-} );
+});
 
 editModalCloseBtn.addEventListener("click", () => {
   closeModal(editModal);
 });
 
+// Event Listeners - Form Submissions
 editFormElement.addEventListener("submit", handleEditFormSubmit);
+cardForm.addEventListener("submit", handleAddCardSubmit);
 
 // Event Listeners - New Post
 cardModalBtn.addEventListener("click", () => {
+  resetValidation(cardForm, [cardNameInput, cardLinkInput], settings);
+  toggleButtonState([cardNameInput, cardLinkInput], cardSubmitBtn, settings);
   openModal(cardModal);
-} );
+});
 
 cardModalCloseBtn.addEventListener("click", () => {
   closeModal(cardModal);
