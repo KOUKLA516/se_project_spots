@@ -86,10 +86,6 @@ const setEventListeners = (formEl, config) => {
   const inputList = Array.from(formEl.querySelectorAll(config.inputSelector));
   const buttonElement = formEl.querySelector(config.submitButtonSelector);
 
-  console.log("Setting up validation for form:", formEl.name); // Debugging log
-  console.log("Inputs found:", inputList); // Debugging log
-  console.log("Submit button found:", buttonElement); // Debugging log
-
   // Set initial button state
   toggleButtonState(inputList, buttonElement, config);
 
@@ -104,8 +100,6 @@ const setEventListeners = (formEl, config) => {
 // Enable validation for all forms
 const enableValidation = (config) => {
   const formList = document.querySelectorAll(config.formSelector);
-
-  console.log("Forms found:", formList); // Debugging log
   formList.forEach((formEl) => {
     setEventListeners(formEl, config);
   });
@@ -114,4 +108,22 @@ const enableValidation = (config) => {
 // Run validation when DOM is fully loaded
 document.addEventListener("DOMContentLoaded", () => {
   enableValidation(settings);
+
+  // Open edit modal and reset validation
+  const profileEditButton = document.querySelector(".profile__edit-btn");
+  const editModal = document.querySelector("#edit-modal");
+
+  profileEditButton.addEventListener("click", () => {
+    openModal(editModal);
+    resetValidation(editModal.querySelector(".modal__form"), settings);
+  });
+
+  // Open add card modal and reset validation
+  const cardModalBtn = document.querySelector(".profile__add-btn");
+  const cardModal = document.querySelector("#add-card-modal");
+
+  cardModalBtn.addEventListener("click", () => {
+    openModal(cardModal);
+    resetValidation(cardModal.querySelector(".modal__form"), settings);
+  });
 });
