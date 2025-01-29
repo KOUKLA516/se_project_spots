@@ -1,4 +1,3 @@
-// Validation Settings
 const settings = {
   formSelector: ".modal__form",
   inputSelector: ".modal__input",
@@ -30,18 +29,7 @@ const hideInputError = (formEl, inputEl, config) => {
 
 // Validate individual input
 const checkInputValidity = (formEl, inputEl, config) => {
-  if (inputEl.name === "name" && (inputEl.value.length < 2 || inputEl.value.length > 40)) {
-    showInputError(formEl, inputEl, "Name must be between 2 and 40 characters.", config);
-  } else if (
-    inputEl.name === "description" &&
-    (inputEl.value.length < 2 || inputEl.value.length > 200)
-  ) {
-    showInputError(formEl, inputEl, "Description must be between 2 and 200 characters.", config);
-  } else if (inputEl.name === "link" && !/^https?:\/\/.+/.test(inputEl.value)) {
-    showInputError(formEl, inputEl, "Must be a valid URL.", config);
-  } else if (inputEl.name === "caption" && (inputEl.value.length < 2 || inputEl.value.length > 30)) {
-    showInputError(formEl, inputEl, "Caption must be between 2 and 30 characters.", config);
-  } else if (!inputEl.validity.valid) {
+  if (!inputEl.validity.valid) {
     showInputError(formEl, inputEl, inputEl.validationMessage, config);
   } else {
     hideInputError(formEl, inputEl, config);
@@ -105,25 +93,4 @@ const enableValidation = (config) => {
   });
 };
 
-// Run validation when DOM is fully loaded
-document.addEventListener("DOMContentLoaded", () => {
-  enableValidation(settings);
-
-  // Open edit modal and reset validation
-  const profileEditButton = document.querySelector(".profile__edit-btn");
-  const editModal = document.querySelector("#edit-modal");
-
-  profileEditButton.addEventListener("click", () => {
-    openModal(editModal);
-    resetValidation(editModal.querySelector(".modal__form"), settings);
-  });
-
-  // Open add card modal and reset validation
-  const cardModalBtn = document.querySelector(".profile__add-btn");
-  const cardModal = document.querySelector("#add-card-modal");
-
-  cardModalBtn.addEventListener("click", () => {
-    openModal(cardModal);
-    resetValidation(cardModal.querySelector(".modal__form"), settings);
-  });
-});
+enableValidation(settings);
