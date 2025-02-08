@@ -114,13 +114,10 @@ function handleAddCardSubmit(evt) {
   initialCards.unshift(inputValues);
   const cardEl = getCardElement(inputValues);
   cardsList.prepend(cardEl);
-  cardNameInput.value = '';
-  cardLinkInput.value = '';
   evt.target.reset();
   disableButton(cardSubmitBtn, settings);
   closeModal(cardModal);
 }
-
 
 // Event Listeners - Profile
 profileEditButton.addEventListener("click", () => {
