@@ -226,3 +226,15 @@
     width: 100%;
   }
 }
+
+@media screen and (max-width: 320px) {
+  .modal__close-btn {
+    top: 12px;
+    right: 12px;
+  }
+
+  .modal__close-button {
+    position: relative;
+    right: -220px;
+  }
+}

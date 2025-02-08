@@ -36,7 +36,7 @@ const checkInputValidity = (formEl, inputEl, config) => {
   }
 };
 
-const hasInvalidInput = (inputList, config) => {
+const hasInvalidInput = (inputList) => {
   return inputList.some((input) => {
     return !input.validity.valid;
   });
@@ -45,27 +45,33 @@ const hasInvalidInput = (inputList, config) => {
 // toggle button
 const toggleButtonState = (inputList, buttonEl, config) => {
   if (hasInvalidInput(inputList)) {
-    disableButton(buttonEl);
+    disableButton(buttonEl, config);
   } else {
     buttonEl.disabled = false;
+    buttonEl.classList.remove(config.inactiveButtonClass);
   }
 };
 
+// reset form validation
 const resetValidation = (formEl, inputList, config) => {
   inputList.forEach((input) => {
-    hideInputError(formEl, input);
+    hideInputError(formEl, input, config);
   });
+  const buttonElement = formEl.querySelector(config.submitButtonSelector);
+  buttonElement.disabled = true;
+  buttonElement.classList.add(config.inactiveButtonClass);
 };
 
 const disableButton = (buttonEl, config) => {
   buttonEl.disabled = true;
+  buttonEl.classList.add(config.inactiveButtonClass);
 };
 
 const setEventListeners = (formEl, config) => {
   const inputList = Array.from(formEl.querySelectorAll(config.inputSelector));
   const buttonElement = formEl.querySelector(config.submitButtonSelector);
 
-  toggleButtonState(inputList, buttonElement);
+  toggleButtonState(inputList, buttonElement, config);
 
   inputList.forEach((inputEl) => {
     inputEl.addEventListener("input", function () {
@@ -77,9 +83,11 @@ const setEventListeners = (formEl, config) => {
 
 const enableValidation = (config) => {
   const formList = document.querySelectorAll(config.formSelector);
-    formList.forEach((formEl) => {
-      setEventListeners(formEl, config);
-    });
-  };
+  formList.forEach((formEl) => {
+    const inputList = Array.from(formEl.querySelectorAll(config.inputSelector));
+    resetValidation(formEl, inputList, config); // Reset validation on load
+    setEventListeners(formEl, config);
+  });
+};
 
-  enableValidation(settings);
+enableValidation(settings);
