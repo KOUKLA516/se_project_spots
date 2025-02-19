@@ -86,8 +86,6 @@ const setEventListeners = (formEl, config) => {
 const enableValidation = (config) => {
   const formList = document.querySelectorAll(config.formSelector);
   formList.forEach((formEl) => {
-    const inputList = Array.from(formEl.querySelectorAll(config.inputSelector));
-    resetValidation(formEl, inputList, config); // Reset validation on load
     setEventListeners(formEl, config);
   });
 };

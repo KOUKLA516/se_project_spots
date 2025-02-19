@@ -36,7 +36,7 @@
 .modal__container_type_preview {
   display: flex;
   flex-direction: column;
-  padding: 0;
+  padding: 6px;
   margin: 0;
   background-color: transparent;
   border-radius: 8px;
@@ -46,13 +46,13 @@
   width: 100%;
   height: auto;
   max-height: 80vh;
-  max-width: 80vw;
+  /*max-width: 80vw;*/
   object-fit: cover;
   border-radius: 8px;
   margin: 0;
 }
 
-.caption__wrapper {
+.modal__caption-wrapper {
   width: 100%;
   display: flex;
   justify-content: left ;
@@ -70,7 +70,7 @@
   line-height: 24px;
 }
 
-.modal__close-button {
+.modal__close-btn_type_preview {
   position: absolute;
   background-image: url(../images/close-light.svg);
   top: 0;
@@ -235,6 +235,14 @@
 
   .modal__close-button {
     position: relative;
-    right: -220px;
+    right: -255px;  /* the close icon will be correctly positioned */
+  }
+
+  .modal__container_type_preview {
+    padding: 6px;  /* the width will be correct */
+  }
+
+  .modal__image {
+    max-width: 100%; /* the width will be correct */
   }
 }

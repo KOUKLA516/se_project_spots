@@ -71,7 +71,7 @@ const cardLinkInput = cardModal.querySelector("#add-card-link-input");
 const previewModal = document.querySelector("#preview-modal");
 const previewModalImageEl = previewModal.querySelector(".modal__image");
 const previewModalCaptionEl = previewModal.querySelector(".modal__caption");
-const previewModalCloseBtn = previewModal.querySelector(".modal__close-button");
+const previewModalCloseBtn = previewModal.querySelector(".modal__close-btn_type_preview");
 
 // Open Modal Function
 const openModal = (modal) => {
@@ -124,7 +124,7 @@ function handleAddCardSubmit(evt) {
 profileEditButton.addEventListener("click", () => {
   editModalNameInput.value = profileName.textContent;
   editModalDescriptionInput.value = profileDescription.textContent;
-  //resetValidation(editForm, [editModalNameInput, editModalDescriptionInput])
+  resetValidation(editForm, [editModalNameInput, editModalDescriptionInput])
   openModal(editModal);
 } );
 
