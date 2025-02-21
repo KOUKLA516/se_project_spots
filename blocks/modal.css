@@ -207,9 +207,6 @@
   .modal__close-btn {
     top: 12px;
     right: 12px;
-  }
-
-  .modal__close-button {
     position: relative;
     right: -450px;
   }
@@ -231,11 +228,9 @@
   .modal__close-btn {
     top: 12px;
     right: 12px;
-  }
-
-  .modal__close-button {
     position: relative;
-    right: -255px;  /* the close icon will be correctly positioned */
+    right: -255px;
+    margin-bottom: 8px;
   }
 
   .modal__container_type_preview {
