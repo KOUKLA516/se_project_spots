@@ -205,8 +205,6 @@
   }
 
   .modal__close-btn {
-    top: 12px;
-    right: 12px;
     position: relative;
     right: -450px;
   }
@@ -226,10 +224,8 @@
 
 @media screen and (max-width: 320px) {
   .modal__close-btn {
-    top: 12px;
-    right: 12px;
     position: relative;
-    right: -255px;
+    right: -245px;
     margin-bottom: 8px;
   }
 
