@@ -46,7 +46,6 @@
   width: 100%;
   height: auto;
   max-height: 80vh;
-  /*max-width: 80vw;*/
   object-fit: cover;
   border-radius: 8px;
   margin: 0;
@@ -161,6 +160,7 @@
   font-weight: 500;
   line-height: 17.6px;
   visibility: hidden;
+  min-height: 36px;
 }
 
 .modal__error_visible {
@@ -205,8 +205,8 @@
   }
 
   .modal__close-btn {
-    position: relative;
-    right: -450px;
+    right: 12px;
+    top: 12px;
   }
 
   .modal__image {
@@ -230,10 +230,10 @@
   }
 
   .modal__container_type_preview {
-    padding: 6px;  /* the width will be correct */
+    padding: 6px;
   }
 
   .modal__image {
-    max-width: 100%; /* the width will be correct */
+    max-width: 100%;
   }
 }
